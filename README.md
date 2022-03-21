@@ -38,7 +38,6 @@ El código que encontraran aquí va a ser construido clase a clase. Por supuesto
  - [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) Extension que sirve para mostrar y codificar de a pares
  - [C# Estensions](https://marketplace.visualstudio.com/items?itemName=jchannon.csharpextensions) Extension para crear archivos mas facil
 
----
 
 <!--## Clases
 
