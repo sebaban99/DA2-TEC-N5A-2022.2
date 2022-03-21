@@ -68,6 +68,7 @@ El código que encontraran aquí va a ser construido clase a clase. Por supuesto
 
 ---
 
-## Docente
+## Docentes
 
-- :space_invader: Nicolás Fierro
+- :space_invader: Daniel Acevedo
+- :space_invader: Matias Salles
