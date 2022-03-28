@@ -10,11 +10,14 @@ namespace Vet.Api.BusinessLogic
     [Route("dogs")]
     public class DogController : ControllerBase
     {
-        private static IEnumerable<Dog> _dogs;
+        public static IEnumerable<Dog> _dogs;
 
         public DogController()
         {
-            _dogs = new List<Dog>();
+            if (_dogs is null)
+            {
+                _dogs = new List<Dog>();
+            }
         }
 
         [HttpGet]
@@ -65,7 +68,9 @@ namespace Vet.Api.BusinessLogic
                 OwnerId = dog.OwnerId
             };
 
-            _dogs.ToList().Add(newDog);
+            var dogsSaved = _dogs.ToList();
+            dogsSaved.Add(newDog);
+            _dogs = dogsSaved;
 
             return CreatedAtRoute("GetDogById", new { dogId = newDog.Id }, newDog);
         }
@@ -94,7 +99,7 @@ namespace Vet.Api.BusinessLogic
             {
                 return NotFound();
             }
-            
+
             _dogs = _dogs.Where(dog => dog.Id != dogId);
 
             return NoContent();

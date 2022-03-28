@@ -32,6 +32,8 @@ namespace Vet.WebApi
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Vet.WebApi", Version = "v1" });
             });
+
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
