@@ -1,6 +1,10 @@
 ﻿using Vidly.WebApi.Domain;
 using Vidly.WebApi.Models.In;
 using Vidly.WebApi.Models.Out;
+using System.Linq;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
 
 namespace Vidly.WebApi.Controllers
 {
@@ -8,14 +12,19 @@ namespace Vidly.WebApi.Controllers
     [ApiController]
     public class MovieController : ControllerBase
     {
-        private static List<Movie> _movies = new List<Movie>();
+        private static List<Movie> _movies = new List<Movie>()
+        {
+            new Movie() { Id = 1, Title = "El conjuro", Description = "De terror" },
+            new Movie() { Id = 2, Title = "El conjuro 2", Description = "De terror 2" }
+        };
 
         // Index - Get all movies (/api/movies)
         [HttpGet]
-        public IActionResult GetMovies()
+        public IActionResult GetMovies([FromQuery] MovieSearchCriteria searchCriteria)
         {
-            var modelMovies = _movies.Select(m => new MovieBasicModel(m));
-            return Ok(modelMovies);
+            var filteredMovies = _movies.Where(searchCriteria.Criteria);
+            
+            return Ok(filteredMovies);
         }
 
         // Show - Get specific movie (/api/movies/{id})
@@ -108,6 +117,7 @@ namespace Vidly.WebApi.Controllers
 
             _movies.Remove(movieSaved);
             _movies.Add(newMovie);
+            return Ok();
         }
 
         // Delete - Delete specific movie (/api/movies/{id})
