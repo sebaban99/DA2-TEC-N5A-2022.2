@@ -1,4 +1,4 @@
-﻿namespace Vidly.WebApi.Models
+﻿namespace Vidly.WebApi.Models.In
 {
     public class MovieModel
     {

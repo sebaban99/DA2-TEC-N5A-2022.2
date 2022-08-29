@@ -1,6 +1,6 @@
 ﻿using Vidly.WebApi.Domain;
 
-namespace Vidly.WebApi.Models
+namespace Vidly.WebApi.Models.Out
 {
     public class MovieDetailModel
     {
