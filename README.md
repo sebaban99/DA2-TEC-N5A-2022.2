@@ -7,7 +7,7 @@
 
 ## Introducción
 
-Este repositorio tiene como objetivo servir de apoyo a las clases de tecnología de la materia Diseño de Aplicaciones 2.
+**El contenido de cada clase esta separado en las ramas subidas**. Este repositorio tiene como objetivo servir de apoyo a las clases de tecnología de la materia Diseño de Aplicaciones 2.
 
 
 ### Herramientas necesarias para este curso
