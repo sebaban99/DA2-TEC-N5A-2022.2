@@ -1,5 +1,3 @@
-# DA2-TEC-N5A-2022.2
-
 # Repositorio de clase
 
 ## Planillas
