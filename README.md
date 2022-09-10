@@ -24,3 +24,14 @@
 
 - :space_invader: Sebastián Bañales
 - :space_invader: Matias Salles
+
+## Enlaces
+### Unit tests
+- [Unit Tests Good Practices](https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-best-practices)
+- [Mock vs stubs](https://martinfowler.com/articles/mocksArentStubs.html)
+### Dependency Injection
+- [Dependency Injection lifetimes](https://code-maze.com/dependency-injection-lifetimes-aspnet-core/amp/)
+- [Choosing a service lifetime](https://jimmybogard.com/choosing-a-servicelifetime/)
+### Anemic Domain model
+- [Anemic domain model](https://martinfowler.com/bliki/AnemicDomainModel.html)
+
