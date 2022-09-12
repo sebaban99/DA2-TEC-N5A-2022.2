@@ -16,5 +16,11 @@ namespace Vidly.Models.Out
             this.Name = movie.Title;
             this.Description = movie.Description;
         }
+
+        public override bool Equals(object? obj)
+        {
+            var model = obj as MovieDetailModel;
+            return model.Id == Id;
+        }
     }
 }
