@@ -12,8 +12,8 @@ using Vidly.DataAccess;
 namespace Vidly.DataAccess.Migrations
 {
     [DbContext(typeof(VidlyContext))]
-    [Migration("20220915184939_InititalMigration2")]
-    partial class InititalMigration2
+    [Migration("20220916014356_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

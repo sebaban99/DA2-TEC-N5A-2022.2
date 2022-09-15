@@ -23,7 +23,7 @@ public class MovieService : IMovieService
         
         Expression<Func<Movie, bool>> moviesFilter = movie =>
             movie.Title.ToLower().Contains(titleCriteria) &&
-            movie.Title.ToLower().Contains(titleCriteria);
+            movie.Description.ToLower().Contains(descriptionCritera);
         
         return _movieRepository.GetAllByExpression(moviesFilter).ToList();
     }

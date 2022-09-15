@@ -56,7 +56,7 @@ public class MovieRepositoryTests
     {
         var actorJuan = new Actor()
         {
-            Name = "Juan Carlos"
+            FirstName = "Juan Carlos"
         };
         var movies = CreateDummyMovies();
         movies.First().Actors.Add(actorJuan);

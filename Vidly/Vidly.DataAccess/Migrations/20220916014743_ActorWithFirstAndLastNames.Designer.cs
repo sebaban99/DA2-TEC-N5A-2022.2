@@ -12,8 +12,8 @@ using Vidly.DataAccess;
 namespace Vidly.DataAccess.Migrations
 {
     [DbContext(typeof(VidlyContext))]
-    [Migration("20220915182008_InititalMigration")]
-    partial class InititalMigration
+    [Migration("20220916014743_ActorWithFirstAndLastNames")]
+    partial class ActorWithFirstAndLastNames
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -45,7 +45,11 @@ namespace Vidly.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

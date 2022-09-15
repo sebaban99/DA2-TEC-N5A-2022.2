@@ -17,7 +17,6 @@ public class VidlyContext : DbContext
         if (!optionsBuilder.IsConfigured)
         {
             var directory = Directory.GetCurrentDirectory();
-            Console.WriteLine($"DIRECTORY {directory}");
 
             var configuration = new ConfigurationBuilder()
                 .SetBasePath(directory)
@@ -26,8 +25,7 @@ public class VidlyContext : DbContext
 
 
             var connectionString = configuration.GetConnectionString("VidlyDB");
-            Console.WriteLine($"CONNECTION STRING {connectionString}");
-            optionsBuilder.UseSqlServer(@"Server=127.0.0.1,1433; Database=VidlyDB; User=sa; Password=mystrongPassword1234$!");
+            optionsBuilder.UseSqlServer(connectionString);
         }
     }
 }
