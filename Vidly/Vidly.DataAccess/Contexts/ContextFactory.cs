@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 namespace Vidly.DataAccess.Contexts;
 
 // Para testing usar SQLite, por defecto usar SQLServer
-public enum ContextType { SQLite, SQLServer, Memory }
+public enum ContextType { SQLite, SQLServer }
 
 public class ContextFactory : IDesignTimeDbContextFactory<VidlyContext>
 {
@@ -23,10 +23,6 @@ public class ContextFactory : IDesignTimeDbContextFactory<VidlyContext>
         {
             options = GetSqliteConfig(builder);
         }
-        else if (type == ContextType.Memory)
-        {
-            options = GetMemoryConfig(builder);
-        }
         else
         {
             options = GetSqlServerConfig(builder);
@@ -37,13 +33,7 @@ public class ContextFactory : IDesignTimeDbContextFactory<VidlyContext>
 
     private static DbContextOptions GetSqliteConfig(DbContextOptionsBuilder builder)
     {
-        builder.UseSqlite("Data Source=Vidly.db");
-        return builder.Options;
-    }
-    
-    private static DbContextOptions GetMemoryConfig(DbContextOptionsBuilder builder)
-    {
-        builder.UseInMemoryDatabase("VidlyDB");
+        builder.UseSqlite("Filename=:memory:");
         return builder.Options;
     }
 

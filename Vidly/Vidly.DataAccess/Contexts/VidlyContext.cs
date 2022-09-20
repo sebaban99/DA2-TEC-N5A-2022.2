@@ -15,8 +15,9 @@ public class VidlyContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        // Ejemplo de Fluent API
         modelBuilder.Entity<Movie>()
-            .Property(d => d.Title)
+            .Property(m => m.Title)
             .IsRequired()
             .HasMaxLength(50);
     }

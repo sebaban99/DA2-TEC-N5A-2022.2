@@ -1,4 +1,5 @@
 using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 using Vidly.DataAccess.Contexts;
 using Vidly.Domain.Entities;
 
@@ -13,7 +14,9 @@ public class MovieRepository
     [TestInitialize]
     public void SetUp()
     {
-        _context = ContextFactory.GetNewContext(ContextType.Memory);
+        _context = ContextFactory.GetNewContext(ContextType.SQLite);
+        _context.Database.OpenConnection();
+        _context.Database.EnsureCreated();
         _repository = new BaseRepository<Movie>(_context);
     }
 
