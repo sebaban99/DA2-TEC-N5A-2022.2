@@ -6,6 +6,7 @@ using Vidly.Exceptions;
 using Vidly.IBusinessLogic;
 using Vidly.Models.Out;
 using Vidly.WebApi.Controllers;
+using Vidly.WebApi.Test.Dummies;
 
 namespace Vidly.WebApi.Test;
 
@@ -13,11 +14,13 @@ namespace Vidly.WebApi.Test;
 public class MovieControllerTest
 {
     private Mock<IMovieManager> _managerMock;
+    private ImporterManagerDummy _importerDummy;
 
     [TestInitialize]
     public void Setup()
     {
         _managerMock = new Mock<IMovieManager>(MockBehavior.Strict);
+        _importerDummy = new ImporterManagerDummy();
     }
 
     [TestCleanup]
@@ -33,7 +36,7 @@ public class MovieControllerTest
         var movie = CreateMovie();
         var expectedMovie = new MovieDetailModel(movie);
         _managerMock.Setup(manager => manager.GetSpecificMovie(It.IsAny<int>())).Returns(movie);
-        var controller = new MovieController(_managerMock.Object);
+        var controller = new MovieController(_managerMock.Object, _importerDummy);
 
         // 2. Act 
         var response = controller.GetMovie(movie.Id);
@@ -50,7 +53,7 @@ public class MovieControllerTest
         var exception = new ResourceNotFoundException("Could not find this movie, sorry :)");
         _managerMock.Setup(manager => manager.GetSpecificMovie(It.IsAny<int>()))
             .Throws(exception);
-        var controller = new MovieController(_managerMock.Object);
+        var controller = new MovieController(_managerMock.Object, _importerDummy);
 
         // 2. Act 
         var response = controller.GetMovie(-1);
