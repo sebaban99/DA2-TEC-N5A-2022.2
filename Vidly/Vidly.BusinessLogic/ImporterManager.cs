@@ -19,17 +19,9 @@ public class ImporterManager : IImporterManager
     public List<Movie> ImportMovies(string importerName)
     {
         List<IImporter> importers = GetImporterImplementations();
-        IImporter? desiredImplementation = null;
-
-        foreach (IImporter importer in importers)
-        {
-            if (importer.GetName() == importerName)
-            {
-                desiredImplementation = importer;
-                break;
-            }
-        }
-
+        
+        IImporter? desiredImplementation = importers.FirstOrDefault(i => i.GetName() == importerName);
+        
         if (desiredImplementation == null)
             throw new ResourceNotFoundException("No se pudo encontrar el importador solicitado");
 
@@ -53,7 +45,7 @@ public class ImporterManager : IImporterManager
 
                 foreach (Type type in assembly.GetTypes())
                 {
-                    if (typeof(IImporter).IsAssignableFrom(type) && !type.IsInterface)
+                    if (typeof(IImporter).IsAssignableFrom(type) && !type.IsInterface && !type.IsAbstract)
                     {
                         IImporter importer = (IImporter)Activator.CreateInstance(type);
                         if (importer != null)

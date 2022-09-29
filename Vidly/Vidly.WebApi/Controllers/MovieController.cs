@@ -8,7 +8,6 @@ namespace Vidly.WebApi.Controllers
 {
     [Route("api/movies")]
     [ApiController]
-    [ServiceFilter(typeof(AuthorizationFilter))]
     public class MovieController : ControllerBase
     {
         private readonly IMovieManager _movieManager;
