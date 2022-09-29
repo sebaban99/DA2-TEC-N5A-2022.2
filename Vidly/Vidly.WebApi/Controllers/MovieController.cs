@@ -12,10 +12,12 @@ namespace Vidly.WebApi.Controllers
     public class MovieController : ControllerBase
     {
         private readonly IMovieManager _movieManager;
+        private readonly IImporterManager _importerManager;
  
-        public MovieController(IMovieManager manager)
+        public MovieController(IMovieManager manager, IImporterManager importerManager)
         {
             _movieManager = manager;
+            _importerManager = importerManager;
         }
 
         // Index - Get all movies (/api/movies)
@@ -57,6 +59,21 @@ namespace Vidly.WebApi.Controllers
         {
             _movieManager.DeleteMovie(movieId);
             return Ok();
+        }
+        
+        // TODO: Pensar si es mejor moverlo a otro controller
+        [HttpGet("importers")]
+        public IActionResult GetImporters()
+        {
+            List<string> retrievedImporters = _importerManager.GetAllImporters();
+            return Ok(retrievedImporters);
+        }
+
+        [HttpPost("import")]
+        public IActionResult ImportMovies([FromBody] string importerName)
+        {
+            List<MovieBasicModel> importedMovies = _importerManager.ImportMovies(importerName).Select(pet => new MovieBasicModel(pet)).ToList();
+            return Ok(importedMovies);
         }
     }
 }

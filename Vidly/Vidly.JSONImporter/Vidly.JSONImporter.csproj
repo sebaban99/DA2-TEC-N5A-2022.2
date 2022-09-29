@@ -7,9 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Vidly.Exceptions\Vidly.Exceptions.csproj" />
-      <ProjectReference Include="..\Vidly.IBusinessLogic\Vidly.IBusinessLogic.csproj" />
-      <ProjectReference Include="..\Vidly.IDataAccess\Vidly.IDataAccess.csproj" />
       <ProjectReference Include="..\Vidly.ImporterInterface\Vidly.ImporterInterface.csproj" />
     </ItemGroup>
 

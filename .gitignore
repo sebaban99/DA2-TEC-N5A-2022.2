@@ -357,3 +357,7 @@ MigrationBackup/
 # Rider
 *.idea/
 
+
+!Vidly/Vidly.WebApi/Importers/
+
+*.DS_Store

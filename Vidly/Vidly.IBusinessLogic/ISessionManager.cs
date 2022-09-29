@@ -1,6 +1,6 @@
 namespace Vidly.IBusinessLogic;
 
-public interface ISessionLogic
+public interface ISessionManager
 {
     bool ValidateToken();
 }

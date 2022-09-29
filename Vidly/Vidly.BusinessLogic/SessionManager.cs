@@ -2,7 +2,7 @@ using Vidly.IBusinessLogic;
 
 namespace Vidly.BusinessLogic;
 
-public class SessionLogic : ISessionLogic
+public class SessionManager : ISessionManager
 {
     public bool ValidateToken()
     {

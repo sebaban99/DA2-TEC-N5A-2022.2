@@ -6,11 +6,11 @@ namespace Vidly.WebApi.Filters;
 
 public class AuthorizationFilter : Attribute, IAuthorizationFilter
 {
-    private readonly ISessionLogic _sessionLogic;
+    private readonly ISessionManager _sessionManager;
 
-    public AuthorizationFilter(ISessionLogic sessionLogic)
+    public AuthorizationFilter(ISessionManager sessionManager)
     {
-        _sessionLogic = sessionLogic;
+        _sessionManager = sessionManager;
     }
     
     public void OnAuthorization(AuthorizationFilterContext context)
@@ -18,7 +18,7 @@ public class AuthorizationFilter : Attribute, IAuthorizationFilter
         var token = context.HttpContext.Request.Headers["Authorization"];
 
         
-        if (String.IsNullOrEmpty(token) && _sessionLogic.ValidateToken())
+        if (String.IsNullOrEmpty(token) || !_sessionManager.ValidateToken())
         {
             // Corto la ejecucion de la request cuando asigno un result
             context.Result = new JsonResult(new { Message = "Please send your authorization token" })

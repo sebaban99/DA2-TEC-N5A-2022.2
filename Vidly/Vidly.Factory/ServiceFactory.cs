@@ -13,7 +13,8 @@ public class ServiceFactory
     public void RegisterServices(IServiceCollection serviceCollection)
     {
         serviceCollection.AddTransient<IMovieManager, MovieManager>();
-        serviceCollection.AddTransient<ISessionLogic, SessionLogic>();
+        serviceCollection.AddTransient<ISessionManager, SessionManager>();
+        serviceCollection.AddTransient<IImporterManager, ImporterManager>();
         serviceCollection.AddTransient<IRepository<Movie>, BaseRepository<Movie>>();
         serviceCollection.AddTransient<IRepository<Actor>, ActorRepository>();
         serviceCollection.AddDbContext<VidlyContext>();

@@ -29,6 +29,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vidly.IDataAccess", "Vidly.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vidly.DataAccess.Test", "Vidly.DataAccess.Test\Vidly.DataAccess.Test.csproj", "{9C1CCD83-756E-4589-8F7F-FC08130F3D90}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vidly.ImporterInterface", "Vidly.ImporterInterface\Vidly.ImporterInterface.csproj", "{07F4B08F-D150-4492-802F-7A96B31F2804}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vidly.JSONImporter", "Vidly.JSONImporter\Vidly.JSONImporter.csproj", "{EF9210F4-DA12-45F0-9007-21F0748C3EA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vidly.XMLImporter", "Vidly.XMLImporter\Vidly.XMLImporter.csproj", "{DC344FED-FA17-4066-99A5-ECF6A6A6116A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +93,18 @@ Global
 		{9C1CCD83-756E-4589-8F7F-FC08130F3D90}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C1CCD83-756E-4589-8F7F-FC08130F3D90}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C1CCD83-756E-4589-8F7F-FC08130F3D90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07F4B08F-D150-4492-802F-7A96B31F2804}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07F4B08F-D150-4492-802F-7A96B31F2804}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07F4B08F-D150-4492-802F-7A96B31F2804}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07F4B08F-D150-4492-802F-7A96B31F2804}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF9210F4-DA12-45F0-9007-21F0748C3EA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF9210F4-DA12-45F0-9007-21F0748C3EA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF9210F4-DA12-45F0-9007-21F0748C3EA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF9210F4-DA12-45F0-9007-21F0748C3EA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC344FED-FA17-4066-99A5-ECF6A6A6116A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC344FED-FA17-4066-99A5-ECF6A6A6116A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC344FED-FA17-4066-99A5-ECF6A6A6116A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC344FED-FA17-4066-99A5-ECF6A6A6116A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
