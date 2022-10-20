@@ -1,0 +1,12 @@
+<div class="d-flex justify-content-center" style="margin-top: 12%;">
+    <div>
+        <label>Seleccione una pelicula:</label>
+        <select class="form-select" [(ngModel)]="selectedMovieId" (change)="getMovieById()" name="id">
+            <option *ngFor="let movie of movies" [value]="movie.id"> {{movie.title}}</option>
+        </select>
+    </div>
+    <div *ngIf="selectedMovie">
+        <app-movie-upsert [movieDisplayed]="selectedMovie" (updatedMovieEmitter)='updateMovie($event)'>
+        </app-movie-upsert>
+    </div>
+</div>

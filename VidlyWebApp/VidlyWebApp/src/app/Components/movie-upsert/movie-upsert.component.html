@@ -1,0 +1,46 @@
+<div class="col-lg-12 text-center mt-4">
+    <h2 *ngIf="movieDisplayed == null" class="contentsTitle">Crear Pelicula</h2>
+</div>
+
+<div class="container col-lg-12" id="contentsContainer">
+    <form *ngIf="movieDisplayed == null; else movieUpdate" #movieForm="ngForm" (ngSubmit)="onSubmitCreate()"
+        name="movieForm" role="form" id="movieFormCreate">
+        <div class="form-group">
+            <label class="control-label col-lg-2" for="name">Título:</label>
+            <div class="col-lg-5">
+                <input type="text" required class="form-control" pattern=".*[a-zA-Z].*$" id="title" [(ngModel)]="title"
+                    name="title">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-2" for="name">Descripcion:</label>
+            <div class="col-lg-5">
+                <input type="text" required class="form-control" pattern=".*[a-zA-Z].*$" id="description"
+                    [(ngModel)]="description" name="description">
+            </div>
+        </div>
+
+        <button (click)="onSubmitCreate()" form="movieForm" [disabled]="movieForm.invalid"
+            class="btn btn-lg btn-success changeBtn">Crear</button>
+    </form>
+    <ng-template #movieUpdate>
+        <form #movieForm="ngForm" (ngSubmit)="onSubmitUpdate()" name="movieForm" role="form" id="movieFormUpdate">
+            <div class="form-group">
+                <label class="control-label col-lg-2" for="name">Título:</label>
+                <div class="col-lg-5">
+                    <input type="text" required class="form-control" pattern=".*[a-zA-Z].*$" id="title"
+                        [(ngModel)]="title" name="title">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-2" for="name">Descripcion:</label>
+                <div class="col-lg-5">
+                    <input type="text" required class="form-control" pattern=".*[a-zA-Z].*$" id="description"
+                        [(ngModel)]="description" name="description">
+                </div>
+            </div>
+            <button (click)="onSubmitUpdate()" form="movieForm" [disabled]="movieForm.invalid"
+                class="btn btn-lg btn-success changeBtn">Actualizar</button>
+        </form>
+    </ng-template>
+</div>
