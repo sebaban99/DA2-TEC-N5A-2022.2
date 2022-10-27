@@ -9,6 +9,7 @@ import { MenuComponent } from './Components/menu/menu.component';
 import { MoviesComponent } from './Components/movies/movies.component';
 import { HomeComponent } from './Components/home/home.component';
 import { MovieUpsertComponent } from './Components/movie-upsert/movie-upsert.component';
+import { CustomPipe } from './Pipes/custom.pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { MovieUpsertComponent } from './Components/movie-upsert/movie-upsert.com
     MenuComponent,
     MoviesComponent,
     HomeComponent,
-    MovieUpsertComponent
+    MovieUpsertComponent,
+    CustomPipe
   ],
   imports: [
     BrowserModule,
